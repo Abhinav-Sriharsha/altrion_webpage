@@ -54,7 +54,7 @@ export default function ProblemSection() {
     }, { scope: containerRef })
 
     return (
-        <section ref={containerRef} id="problem" className="py-16 md:py-24 bg-transparent">
+        <section ref={containerRef} id="problem" className="py-16 md:py-24 bg-[#ffffff]">
             <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                     {/* Left Column: Huge Header */}
@@ -64,11 +64,11 @@ export default function ProblemSection() {
                             className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-foreground tracking-tight"
                             style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
                         >
-                            SMBs are <br />
-                            funding the <br />
-                            largest shadow <br />
-                            lending program <br />
-                            in history
+                            Fragmented <br />
+                            infrastructure <br />
+                            is stifling <br />
+                            institutional <br />
+                            growth
                         </h2>
                     </div>
 
