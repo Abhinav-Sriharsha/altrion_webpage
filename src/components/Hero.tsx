@@ -39,7 +39,15 @@ export default function Hero() {
             <HeroBackground />
 
             <div className="container relative z-10 px-4 md:px-6 text-center mx-auto max-w-5xl">
-                <h1 ref={titleRef} className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-foreground">
+                <h1
+                    ref={titleRef}
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-foreground"
+                    style={{
+                        fontFamily: "'LinecaGreek', 'Outfit', sans-serif",
+                        fontVariationSettings: "'wght' 463, 'slnt' -51", // Slant usually negative in CSS or requires 'slnt' axis check. Assuming standard VF.
+                        fontWeight: 463
+                    }}
+                >
                     Tokenized Crypto Lending & <br className="hidden md:block" /> Insurance Solution
                 </h1>
 

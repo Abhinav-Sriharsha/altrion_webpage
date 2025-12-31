@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import ProblemSection from "@/components/ProblemSection"
 import SolutionsSection from "@/components/SolutionsSection"
-import BridgeSection from "@/components/BridgeSection"
+import ContactSection from "@/components/ContactSection"
 import Footer from "@/components/Footer"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -29,7 +29,7 @@ function App() {
         <Hero />
         <ProblemSection />
         <SolutionsSection />
-        <BridgeSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
