@@ -35,7 +35,7 @@ export default function Hero() {
     }, { scope: containerRef })
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-transparent pt-20">
+        <section ref={containerRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-transparent pt-20">
             <HeroBackground />
 
             <div className="container relative z-10 px-4 md:px-6 text-center mx-auto max-w-5xl">

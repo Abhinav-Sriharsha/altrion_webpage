@@ -42,6 +42,7 @@ export default function ProblemSection() {
                     toggleActions: "play none none reverse"
                 }
             })
+
             tl.from(titleRef.current, { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" })
                 .from(cardsRef.current, { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
         })
@@ -55,6 +56,7 @@ export default function ProblemSection() {
                     toggleActions: "play none none reverse"
                 }
             })
+
             tl.from(titleRef.current, { y: 50, opacity: 0, duration: 0.8, ease: "power3.out" })
                 .from(cardsRef.current, { y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.6")
         })

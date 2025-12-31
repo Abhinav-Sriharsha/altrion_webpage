@@ -21,6 +21,10 @@
 }
 
 @layer base {
+  html {
+    /* Force vertical scrollbar to prevent layout shift */
+  }
+
   :root {
     /* Premium Fintech Palette: Teal & Slate */
     --background: #f8fafc;
