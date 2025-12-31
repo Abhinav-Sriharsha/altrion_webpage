@@ -31,7 +31,7 @@ const problems = [
 export default function ProblemSection() {
     const containerRef = useRef(null)
     const headerRef = useRef(null)
-    const gridRef = useRef(null)
+    const gridRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
         const tl = gsap.timeline({

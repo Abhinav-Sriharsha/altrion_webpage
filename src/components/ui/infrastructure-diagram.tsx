@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+
 import coreImage from "@/assets/transparent_logo.png";
 import { cn } from "@/lib/utils";
 
