@@ -1,36 +1,52 @@
 import { useEffect } from "react"
+import { Routes, Route, useLocation } from "react-router-dom"
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import ProblemSection from "@/components/ProblemSection"
 import SolutionsSection from "@/components/SolutionsSection"
 import ContactSection from "@/components/ContactSection"
 import Footer from "@/components/Footer"
+import WhyUs from "@/pages/WhyUs"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Force scroll to top on page reload and enforce /# in URL
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual'
+    // Scroll handling
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (pathname !== '/') {
+      window.scrollTo(0, 0);
+    } else {
+      // If simply on / and no hash, verify if we need to scroll top or not.
+      // Usually browser handles scroll restoration, but let's force top if wanted.
+      window.scrollTo(0, 0);
     }
-    // Set URL to /#
-    window.history.replaceState(null, '', '/#')
-    window.scrollTo(0, 0)
-  }, [])
+  }, [pathname, hash]);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main className="min-h-screen w-full relative">
-        <Hero />
-        <ProblemSection />
-        <SolutionsSection />
-        <ContactSection />
-      </main>
+      <Routes>
+        <Route path="/" element={
+          <main className="min-h-screen w-full relative">
+            <Hero />
+            <ProblemSection />
+            <SolutionsSection />
+            <ContactSection />
+          </main>
+        } />
+        <Route path="/why-us" element={<WhyUs />} />
+      </Routes>
       <Footer />
     </div>
   )
