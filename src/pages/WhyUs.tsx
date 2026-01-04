@@ -3,7 +3,8 @@ import { useRef } from "react";
 import scene1Video from "@/assets/animations/scene 1 animation.mp4";
 import scene2Video from "@/assets/animations/scene 2 animation.mp4";
 import scene3Video from "@/assets/animations/scene 3 animation.mp4";
-import scene4Image from "@/assets/images/altrion scene 4.png";
+import scene4Video from "@/assets/animations/scene 4 animation.mp4";
+import scene4Poster from "@/assets/images/loan scene 4.jpg";
 import scene5Video from "@/assets/animations/scene 5 animation.mp4";
 
 const steps = [
@@ -25,7 +26,7 @@ const steps = [
     {
         title: "The Solution",
         description: "Zach discovers Altrion.ai, a compliant, institutional-grade platform that lets him borrow against his crypto with transparent rates, insurance protection, and regulatory oversight.",
-        media: { type: "image", src: scene4Image }
+        media: { type: "video", src: scene4Video, poster: scene4Poster }
     },
     {
         title: "The Outcome",
@@ -34,7 +35,7 @@ const steps = [
     }
 ];
 
-function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
+function StepCard({ step, index }: { step: typeof steps[0] & { media: { poster?: string } }; index: number }) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const handleMouseEnter = () => {
@@ -77,6 +78,7 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
                     <video
                         ref={videoRef}
                         src={step.media.src}
+                        poster={step.media.poster}
                         muted
                         playsInline
                         className="w-full h-full object-contain"
