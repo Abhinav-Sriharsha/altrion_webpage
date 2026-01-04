@@ -4,7 +4,7 @@ import scene1Video from "@/assets/animations/scene 1 animation.mp4";
 import scene2Video from "@/assets/animations/scene 2 animation.mp4";
 import scene3Video from "@/assets/animations/scene 3 animation.mp4";
 import scene4Video from "@/assets/animations/scene 4 animation.mp4";
-import scene4Poster from "@/assets/images/loan scene 4.jpg";
+import scene4Poster from "@/assets/images/temp.jpg";
 import scene5Video from "@/assets/animations/scene 5 animation.mp4";
 
 const steps = [
