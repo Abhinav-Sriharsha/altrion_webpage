@@ -1,4 +1,3 @@
-import { useRef } from "react";
 // Assets
 import scene1Video from "@/assets/animations/scene 1 animation.mp4";
 import scene2Video from "@/assets/animations/scene 2 animation.mp4";
@@ -6,6 +5,8 @@ import scene3Video from "@/assets/animations/scene 3 animation.mp4";
 import scene4Video from "@/assets/animations/scene 4 animation.mp4";
 import scene4Poster from "@/assets/images/temp.jpg";
 import scene5Video from "@/assets/animations/scene 5 animation.mp4";
+import AltrionDifference from "@/components/AltrionDifference";
+import StoryStep from "@/components/StoryStep";
 
 const steps = [
     {
@@ -35,87 +36,32 @@ const steps = [
     }
 ];
 
-function StepCard({ step, index }: { step: typeof steps[0] & { media: { poster?: string } }; index: number }) {
-    const videoRef = useRef<HTMLVideoElement>(null);
-
-    const handleMouseEnter = () => {
-        if (videoRef.current && step.media.type === 'video') {
-            videoRef.current.play();
-        }
-    };
-
-    const handleMouseLeave = () => {
-        if (videoRef.current && step.media.type === 'video') {
-            videoRef.current.pause();
-            videoRef.current.currentTime = 0;
-        }
-    };
-
-    return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
-            {/* Text Tile */}
-            <div className="p-8 rounded-2xl border border-border bg-card h-[250px] flex flex-col justify-center transition-all hover:border-primary/30">
-                <div className="flex items-center gap-4 mb-4">
-                    <div className="w-10 h-10 rounded-full border-2 border-primary bg-primary/10 text-primary flex items-center justify-center text-lg font-bold">
-                        {index + 1}
-                    </div>
-                    <h3 className="text-2xl font-bold font-['LinecaGreek']">
-                        {step.title}
-                    </h3>
-                </div>
-                <p className="text-base leading-relaxed text-muted-foreground font-medium">
-                    {step.description}
-                </p>
-            </div>
-
-            {/* Media Tile */}
-            <div
-                className="rounded-2xl overflow-hidden bg-secondary/5 border border-border h-[250px] flex items-center justify-center cursor-pointer group"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                {step.media.type === 'video' ? (
-                    <video
-                        ref={videoRef}
-                        src={step.media.src}
-                        poster={step.media.poster}
-                        muted
-                        playsInline
-                        className="w-full h-full object-contain"
-                    />
-                ) : (
-                    <img
-                        src={step.media.src}
-                        alt={step.title}
-                        className="w-full h-full object-contain scale-125 transition-transform duration-700 group-hover:scale-[1.35]"
-                    />
-                )}
-            </div>
-        </div>
-    );
-}
-
 export default function WhyUs() {
     return (
-        <div className="bg-background py-24">
-            {/* Header */}
-            <div className="container mx-auto px-6 mb-24">
-                <div className="text-center max-w-4xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 font-['LinecaGreek']">
-                        Move at the speed of <br /><span className="text-primary">Innovation</span>
-                    </h1>
-                    <p className="text-xl text-muted-foreground">
-                        Follow the journey that leads smarter investors to Altrion.
-                    </p>
+        <>
+            {/* Section 1: Story & Tiles */}
+            <div className="relative min-h-screen py-24 bg-background">
+                {/* Header */}
+                <div className="relative z-10 container mx-auto px-6 mb-24">
+                    <div className="text-center max-w-4xl mx-auto">
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 font-['LinecaGreek']">
+                            Move at the speed of <br /><span className="text-primary">Altrion</span>
+                        </h1>
+                        <p className="text-xl text-muted-foreground">
+                            Follow the journey that leads smarter investors to Altrion.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Steps Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 px-6">
+                    {steps.map((step, index) => (
+                        <StoryStep key={index} step={step} index={index} />
+                    ))}
                 </div>
             </div>
 
-            {/* Steps Grid */}
-            <div className="container mx-auto px-6 space-y-16">
-                {steps.map((step, index) => (
-                    <StepCard key={index} step={step} index={index} />
-                ))}
-            </div>
-        </div>
+            <AltrionDifference />
+        </>
     );
 }
