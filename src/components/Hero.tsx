@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import HeroBackground from "@/components/HeroBackground"
 import gsap from "gsap"
@@ -56,10 +56,16 @@ export default function Hero() {
                 </p>
 
                 <div ref={buttonRef} className="flex justify-center flex-wrap gap-4">
-                    <Button size="lg" className="rounded-full px-8 text-lg bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all">
-                        Explore
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
+                    <Link
+                        to="/why-us"
+                        className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    >
+                        <span className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 ease-in-out group-hover:translate-x-full" />
+                        <span className="relative z-10 flex items-center gap-2">
+                            Why Altrion?
+                            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </span>
+                    </Link>
                 </div>
             </div>
         </section>
