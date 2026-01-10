@@ -30,18 +30,18 @@ export default function SolutionsSection() {
     }, { scope: containerRef })
 
     return (
-        <section ref={containerRef} id="solutions" className="py-16 md:py-24 relative overflow-hidden bg-[#ffffff]">
+        <section ref={containerRef} id="solution" className="py-16 md:py-24 relative overflow-hidden bg-[#ffffff]">
             <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
 
                 {/* Colored Container Wrapping Text + Diagram */}
                 <div
                     ref={contentWrapperRef}
-                    className="bg-[#DCE5E2] md:p-20  border border-teal-50 shadow-sm"
+                    className="bg-[#DCE5E2] p-8 md:p-20 border border-teal-50 shadow-sm rounded-3xl"
                 >
                     <div className="text-center max-w-4xl mx-auto mb-16">
                         <h2
                             ref={titleRef}
-                            className="text-3xl md:text-5xl lg:text-6xl font-medium mb-6 text-foreground tracking-tight"
+                            className="text-3xl md:text-5xl lg:text-6xl font-medium mb-6 text-foreground tracking-tight break-words"
                             style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
                         >
                             A Compliance-First Infrastructure <br className="hidden md:block" /> for Institutional Digital Assets

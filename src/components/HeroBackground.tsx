@@ -161,7 +161,7 @@ const fragmentShader = `
     
     // Shift vertically to move the "center" of the neural network down
     // Decrease this value to move the animation UP. Increase to move DOWN.
-    uv.y += -1.2;
+    uv.y += -1.5;
     gl_FragColor = cppn_fn(uv, 0.1 * sin(0.3 * iTime), 0.1 * sin(0.69 * iTime), 0.1 * sin(0.44 * iTime));
   }
 `;

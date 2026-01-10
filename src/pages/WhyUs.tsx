@@ -8,6 +8,8 @@ import scene5Video from "@/assets/animations/scene 5 animation.mp4";
 import AltrionDifference from "@/components/AltrionDifference";
 import StoryStep from "@/components/StoryStep";
 
+import { Component as WhyUsBackground } from "@/components/ui/background-components";
+
 const steps = [
     {
         title: "The Asset",
@@ -40,7 +42,7 @@ export default function WhyUs() {
     return (
         <>
             {/* Section 1: Story & Tiles */}
-            <div className="relative min-h-screen py-24 bg-background">
+            <WhyUsBackground className="py-24">
                 {/* Header */}
                 <div className="relative z-10 container mx-auto px-6 mb-24">
                     <div className="text-center max-w-4xl mx-auto">
@@ -59,7 +61,7 @@ export default function WhyUs() {
                         <StoryStep key={index} step={step} index={index} />
                     ))}
                 </div>
-            </div>
+            </WhyUsBackground>
 
             <AltrionDifference />
         </>

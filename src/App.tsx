@@ -25,11 +25,10 @@ function App() {
         }, 100);
       }
     } else if (pathname !== '/') {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     } else {
       // If simply on / and no hash, verify if we need to scroll top or not.
-      // Usually browser handles scroll restoration, but let's force top if wanted.
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [pathname, hash]);
 
