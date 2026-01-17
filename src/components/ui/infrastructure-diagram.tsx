@@ -1,7 +1,7 @@
 "use client";
 
 
-import coreImage from "@/assets/transparent_logo.png";
+import coreImage from "@/assets/justlogo'd.png";
 import { cn } from "@/lib/utils";
 
 const nodes = [
@@ -11,7 +11,7 @@ const nodes = [
         position: "top-left",
     },
     {
-        title: "Risk Shield (ARS)",
+        title: "Altrion Personal Planner",
         description: "Insurance against volatility & smart contract risk. Automated payouts.",
         position: "top-right",
     },

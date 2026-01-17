@@ -65,10 +65,10 @@ export default function ProblemSection() {
                             style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
                         >
                             Fragmented <br />
-                            infrastructure <br />
-                            is stifling <br />
-                            institutional <br />
-                            growth
+                            tools create <br />
+                            fragmented  <br />
+                            financial <br />
+                            decisions.
                         </h2>
                     </div>
 

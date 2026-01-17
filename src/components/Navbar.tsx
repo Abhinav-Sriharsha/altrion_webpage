@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
-import Logo from "@/assets/transparent_logo.png"
+import Logo from "@/assets/justlogo'd.png"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -62,11 +62,7 @@ export default function Navbar() {
                                 {item.name}
                             </Link>
                         ))}
-                        <Link to="/#contact">
-                            <Button className="ml-4 bg-[#008080] hover:bg-[#006666] text-white">
-                                Contact Us
-                            </Button>
-                        </Link>
+
                     </div>
 
                     {/* Mobile Menu Toggle */}

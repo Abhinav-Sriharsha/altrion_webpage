@@ -1,5 +1,5 @@
 import { TextHoverEffect } from "@/components/ui/hover-footer"
-import transparentLogo from "@/assets/transparent_logo.png"
+import transparentLogo from "@/assets/justlogo'd.png"
 
 export default function Footer() {
     return (

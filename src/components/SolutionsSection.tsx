@@ -44,7 +44,7 @@ export default function SolutionsSection() {
                             className="text-3xl md:text-5xl lg:text-6xl font-medium mb-6 text-foreground tracking-tight break-words"
                             style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
                         >
-                            A Compliance-First Infrastructure <br className="hidden md:block" /> for Institutional Digital Assets
+                            A unified agentic AI layer <br className="hidden md:block" />powering aggregation, analysis and advancement.
                         </h2>
                         <p ref={subtitleRef} className="text-xl text-muted-foreground">
                             We are building the bridge between stability & innovation
