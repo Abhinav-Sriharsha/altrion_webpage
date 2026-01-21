@@ -3,20 +3,20 @@ import transparentLogo from "@/assets/justlogo'd.png"
 
 export default function Footer() {
     return (
-        <footer className="bg-[#ffffff] py-12 pb-0 relative overflow-hidden">
+        <footer className="bg-[#f6f3ee] py-12 pb-0 relative overflow-hidden">
             <div className="container mx-auto px-4 md:px-6 relative z-10 mb-8">
                 <div className="flex flex-col items-center">
                     <div className="mb-8">
                         <img src={transparentLogo} alt="Altrion Logo" className="h-16 w-auto object-contain" />
                     </div>
-                    <nav className="mb-8 flex flex-wrap justify-center gap-8 text-muted-foreground font-medium">
-                        <a href="#" className="hover:text-primary transition-colors">Home</a>
-                        <a href="#problem" className="hover:text-primary transition-colors">Problem</a>
-                        <a href="#solutions" className="hover:text-primary transition-colors">Solutions</a>
-                        <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+                    <nav className="mb-8 flex flex-wrap justify-center gap-8 text-lg font-medium" style={{ color: 'black' }}>
+                        <a href="#" className="hover:opacity-70 transition-opacity">Home</a>
+                        <a href="#problem" className="hover:opacity-70 transition-opacity">Problem</a>
+                        <a href="#solutions" className="hover:opacity-70 transition-opacity">Solutions</a>
+                        <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
                     </nav>
                     <div className="text-center mb-8">
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-base" style={{ color: 'black' }}>
                             © {new Date().getFullYear()} Altrion. All rights reserved.
                         </p>
                     </div>
@@ -30,8 +30,8 @@ export default function Footer() {
                     <TextHoverEffect
                         text="ALTRION"
                         mainStrokeColor="black"
-                        hoverStrokeColor="#008080"
-                        fillColor="rgba(5, 150, 150, 1)"
+                        hoverStrokeColor="#007958"
+                        fillColor="rgba(0, 121, 88, 1)"
                     />
                 </div>
             </div>

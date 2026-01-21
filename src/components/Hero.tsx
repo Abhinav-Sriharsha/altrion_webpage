@@ -68,7 +68,8 @@ export default function Hero() {
                     <div ref={buttonRef} className="flex justify-center lg:justify-start flex-wrap gap-4">
                         <Link
                             to="/why-us"
-                            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground shadow-lg transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                            className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-lg font-medium text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            style={{ backgroundColor: '#073121' }}
                         >
                             <span className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 ease-in-out group-hover:translate-x-full" />
                             <span className="relative z-10 flex items-center gap-2">

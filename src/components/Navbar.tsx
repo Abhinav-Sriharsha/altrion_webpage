@@ -3,20 +3,10 @@ import { Link, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import Logo from "@/assets/justlogo'd.png"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
-    const [scrolled, setScrolled] = useState(false)
     const location = useLocation()
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20)
-        }
-        window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll)
-    }, [])
 
     // Close mobile menu when route changes
     useEffect(() => {
@@ -33,19 +23,18 @@ export default function Navbar() {
 
     return (
         <nav
-            className={cn(
-                "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-                scrolled || isOpen
-                    ? "bg-[#a6bbbb]/90 backdrop-blur-md border-border"
-                    : "bg-transparent border-transparent"
-            )}
+            className="fixed top-0 w-full z-50 transition-all duration-300"
+            style={{
+                backgroundColor: '#073121',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.4)'
+            }}
         >
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-                        <img src={Logo} alt="Altrion Logo" className="h-8 md:h-10 w-auto" />
-                        <span className="text-lg md:text-xl font-bold tracking-wide uppercase" style={{ color: 'black', fontFamily: "'LinecaGreek', sans-serif" }}>
+                        <img src={Logo} alt="Altrion Logo" className="h-8 md:h-10 w-auto brightness-0 invert" />
+                        <span className="text-lg md:text-xl font-bold tracking-wide uppercase" style={{ color: 'white', fontFamily: "'LinecaGreek', sans-serif" }}>
                             Altrion
                         </span>
                     </Link>
@@ -56,8 +45,11 @@ export default function Navbar() {
                             <Link
                                 key={item.name}
                                 to={item.url}
-                                className="text-base font-medium hover:text-primary transition-colors"
-                                style={{ color: 'black', fontFamily: "'LinecaGreek', sans-serif" }}
+                                className="text-base font-medium transition-all duration-200 hover:opacity-80"
+                                style={{
+                                    color: 'white',
+                                    fontFamily: "'LinecaGreek', sans-serif",
+                                }}
                             >
                                 {item.name}
                             </Link>
@@ -72,6 +64,7 @@ export default function Navbar() {
                             size="icon"
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label="Toggle menu"
+                            className="text-white hover:bg-white/10"
                         >
                             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </Button>
@@ -81,13 +74,14 @@ export default function Navbar() {
 
             {/* Mobile Navigation Menu */}
             {isOpen && (
-                <div className="md:hidden border-t border-border bg-background">
+                <div className="md:hidden border-t border-white/15" style={{ backgroundColor: '#073121' }}>
                     <div className="flex flex-col space-y-4 px-4 py-6">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 to={item.url}
-                                className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                                className="text-base font-medium transition-all duration-200 hover:opacity-80"
+                                style={{ color: 'white', fontFamily: "'LinecaGreek', sans-serif" }}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.name}

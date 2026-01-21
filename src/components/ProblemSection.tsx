@@ -1,11 +1,5 @@
-import { useRef } from "react"
 import { Scale, Database, ShieldAlert } from "lucide-react"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { cn } from "@/lib/utils"
-
-gsap.registerPlugin(ScrollTrigger)
 
 const problems = [
     {
@@ -29,40 +23,15 @@ const problems = [
 ]
 
 export default function ProblemSection() {
-    const containerRef = useRef(null)
-    const headerRef = useRef(null)
-    const gridRef = useRef<HTMLDivElement>(null)
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top 75%",
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        tl.from(headerRef.current, { x: -30, opacity: 0, duration: 1, ease: "power3.out" })
-            .from(gridRef.current?.children || [], {
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power3.out"
-            }, "-=0.6")
-
-    }, { scope: containerRef })
-
     return (
-        <section ref={containerRef} id="problem" className="py-16 md:py-24 bg-[#ffffff]">
+        <section id="problem" className="py-16 md:py-24 bg-[#051310]">
             <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                     {/* Left Column: Huge Header */}
                     <div className="lg:w-1/3 shrink-0">
                         <h2
-                            ref={headerRef}
-                            className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-foreground tracking-tight"
-                            style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
+                            className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight"
+                            style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                         >
                             Fragmented <br />
                             tools create <br />
@@ -73,15 +42,15 @@ export default function ProblemSection() {
                     </div>
 
                     {/* Right Column: Grid of Items */}
-                    <div ref={gridRef} className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16">
+                    <div className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16">
                         {problems.map((item, index) => (
                             <div key={index} className="flex flex-col gap-4">
                                 <div className={cn("w-6 h-6 mb-2", item.iconClass)}>
                                     <item.icon className="w-full h-full stroke-[1.5]" />
                                 </div>
                                 <h3
-                                    className="text-xl md:text-2xl font-medium text-foreground"
-                                    style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
+                                    className="text-xl md:text-2xl font-medium"
+                                    style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                                 >
                                     {item.title}
                                 </h3>

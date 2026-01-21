@@ -229,7 +229,7 @@ interface HeroBackgroundProps {
 const HeroBackground = ({
     className = '',
     color1 = '#ffffff', // Default: White
-    color2 = '#008080'  // Default: Teal
+    color2 = '#4da18a'  // Default: Teal
 }: HeroBackgroundProps) => {
     const canvasRef = useRef<HTMLDivElement | null>(null);
 

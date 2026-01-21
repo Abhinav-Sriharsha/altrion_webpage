@@ -1,12 +1,5 @@
-import { useRef } from "react";
 import { LayoutDashboard, Coins, ShieldAlert, Check, X, FileWarning, TrendingDown, ShieldOff, Scale, ShieldCheck, type LucideIcon } from "lucide-react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-
-
-gsap.registerPlugin(ScrollTrigger);
 
 type TileVariant = 'positive' | 'negative';
 
@@ -30,19 +23,19 @@ function DifferenceTile({ icon: Icon, title, subtitle, features, variant }: Diff
     const textColor = "text-slate-600";
 
     return (
-        <div className="flex flex-col gap-3 py-6 px-6 rounded-2xl border border-slate-200 bg-white items-center text-center shadow-sm max-w-[400px] mx-auto w-full min-h-0 justify-between">
-            <div className={`w-10 h-10 ${accentColor} flex items-center justify-center shrink-0`}>
+        <div className="flex flex-col gap-2 py-4 px-5 rounded-xl border border-slate-200 items-center text-center shadow-sm max-w-[320px] mx-auto w-full h-full flex-1" style={{ backgroundColor: '#f6f3ee' }}>
+            <div className={`w-7 h-7 ${accentColor} flex items-center justify-center shrink-0`}>
                 <Icon className="w-full h-full stroke-[1.5]" />
             </div>
 
             <div className="shrink-0">
-                <h4 className={`text-xl font-bold ${titleColor} font-['LinecaGreek'] mb-2`}>{title}</h4>
+                <h4 className={`text-xl font-bold ${titleColor} font-['LinecaGreek'] mb-1`}>{title}</h4>
                 <p className={`text-base font-medium ${subtitleColor} leading-snug`}>{subtitle}</p>
             </div>
 
-            <div className="space-y-2 pt-1 w-full">
+            <div className="space-y-1 pt-1 w-full">
                 {features.map((feature, i) => (
-                    <div key={i} className={`text-base ${textColor} flex items-center justify-center gap-2`}>
+                    <div key={i} className={`text-sm ${textColor} flex items-center justify-center gap-2`}>
                         <p className="leading-relaxed">{feature}</p>
                     </div>
                 ))}
@@ -139,156 +132,83 @@ const institutionReasons = [
 ];
 
 export default function AltrionDifference() {
-    const institutionsRef = useRef(null);
-    const institutionsHeaderRef = useRef(null);
-    const institutionsGridRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: institutionsRef.current,
-                start: "top 75%",
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        tl.from(institutionsHeaderRef.current, { x: -30, opacity: 0, duration: 1, ease: "power3.out" })
-            .from(institutionsGridRef.current?.children || [], {
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power3.out"
-            }, "-=0.6");
-
-    }, { scope: institutionsRef });
 
     return (
         <div className="bg-[#ffffff]">
-            <section className="relative py-12 lg:py-0 min-h-screen flex flex-col justify-center overflow-hidden">
-                {/* Split Glows - Strict Separation */}
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    {/* Desktop View: Left/Right Split */}
-                    <div className="hidden lg:flex w-full h-full">
-                        {/* Left Side - Green Glow */}
-                        <div className="w-1/2 h-full relative overflow-hidden">
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    backgroundImage: `radial-gradient(circle at 100% 50%, #6bf79cff 0%, transparent 40%)`, // Light Green
-                                    opacity: 0.5,
-                                    mixBlendMode: "multiply",
-                                }}
-                            />
-                        </div>
-                        {/* Right Side - Red Glow */}
-                        <div className="w-1/2 h-full relative overflow-hidden">
-                            <div
-                                className="absolute inset-0"
-                                style={{
-                                    backgroundImage: `radial-gradient(circle at 0% 50%, #ff7272ff 0%, transparent 40%)`, // Light Red
-                                    opacity: 0.5,
-                                    mixBlendMode: "multiply",
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center py-12">
-                    <div className="text-center max-w-4xl mx-auto mb-10">
-                        <h2 className="text-5xl md:text-6xl font-bold font-['LinecaGreek'] mb-4 text-slate-900 tracking-tight">
+            <section className="relative py-8 lg:py-6 min-h-0 flex flex-col justify-center overflow-hidden" style={{ backgroundColor: '#083524' }}>
+                <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center py-6">
+                    <div className="text-center max-w-4xl mx-auto mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold font-['LinecaGreek'] mb-2 tracking-tight" style={{ color: '#f6f3ee' }}>
                             The Altrion Difference
                         </h2>
-                        <p className="text-xl text-slate-600">
+                        <p className="text-lg" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                             Turn financial chaos into clarity. See why smarter investors choose Altrion.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 relative">
+                    {/* Column Headers */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 relative mb-4">
                         {/* Vertical Divider Line - Thicker */}
                         <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 hidden lg:block -translate-x-1/2" />
 
-                        {/* Column 1: The Altrion Advantage */}
-                        <div className="space-y-6 relative rounded-3xl lg:rounded-none">
-                            {/* Mobile Green Glow */}
-                            <div className="absolute inset-0 lg:hidden pointer-events-none overflow-hidden -z-10 -m-6 rounded-3xl">
-                                <div
-                                    className="absolute inset-0"
-                                    style={{
-                                        backgroundImage: `radial-gradient(circle at 50% 50%, #6bf79cff 0%, transparent 60%)`, // Centered Green for mobile block
-                                        opacity: 0.4,
-                                        mixBlendMode: "multiply",
-                                    }}
-                                />
+                        {/* Column 1 Header: The Altrion Advantage */}
+                        <div className="flex flex-col items-center text-center gap-1">
+                            <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                                <Check className="w-4 h-4 text-blue-600" />
                             </div>
-
-                            <div className="flex flex-col items-center text-center gap-2 mb-6">
-                                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-                                    <Check className="w-6 h-6 text-blue-600" />
-                                </div>
-                                <h3 className="text-3xl font-bold text-slate-900 font-['LinecaGreek']">The Altrion Advantage</h3>
-                            </div>
-
-                            {ADVANTAGE_CARDS.map((card, index) => (
-                                <DifferenceTile
-                                    key={index}
-                                    {...card}
-                                    variant="positive"
-                                />
-                            ))}
+                            <h3 className="text-2xl font-bold text-slate-900 font-['LinecaGreek']">The Altrion Advantage</h3>
                         </div>
 
-                        {/* Column 2: The Cost of Ignoring It */}
-                        <div className="space-y-6 relative rounded-3xl lg:rounded-none">
-                            {/* Mobile Red Glow */}
-                            <div className="absolute inset-0 lg:hidden pointer-events-none overflow-hidden -z-10 -m-6 rounded-3xl">
-                                <div
-                                    className="absolute inset-0"
-                                    style={{
-                                        backgroundImage: `radial-gradient(circle at 50% 50%, #ff7272ff 0%, transparent 60%)`, // Centered Red for mobile block
-                                        opacity: 0.4,
-                                        mixBlendMode: "multiply",
-                                    }}
-                                />
+                        {/* Column 2 Header: The Cost of Ignoring It */}
+                        <div className="flex flex-col items-center text-center gap-1">
+                            <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                                <X className="w-4 h-4 text-red-600" />
                             </div>
-
-                            <div className="flex flex-col items-center text-center gap-2 mb-6">
-                                <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
-                                    <X className="w-6 h-6 text-red-600" />
-                                </div>
-                                <h3 className="text-3xl font-bold text-red-600 font-['LinecaGreek']">The Cost of Ignoring It</h3>
-                            </div>
-
-                            {COST_CARDS.map((card, index) => (
-                                <DifferenceTile
-                                    key={index}
-                                    {...card}
-                                    variant="negative"
-                                />
-                            ))}
+                            <h3 className="text-2xl font-bold text-red-600 font-['LinecaGreek']">The Cost of Ignoring It</h3>
                         </div>
+                    </div>
+
+                    {/* Tiles - Row by Row */}
+                    <div className="space-y-3 relative">
+                        {/* Vertical Divider Line */}
+                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 hidden lg:block -translate-x-1/2" />
+
+                        {ADVANTAGE_CARDS.map((advantageCard, index) => (
+                            <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+                                <div className="flex">
+                                    <DifferenceTile
+                                        {...advantageCard}
+                                        variant="positive"
+                                    />
+                                </div>
+                                <div className="flex">
+                                    <DifferenceTile
+                                        {...COST_CARDS[index]}
+                                        variant="negative"
+                                    />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Why Institutions Choose Altrion - Refactored to match ProblemSection */}
-            <section ref={institutionsRef} className="py-16 md:py-24 bg-slate-50/50">
+            <section className="py-16 md:py-24" style={{ backgroundColor: '#051310' }}>
                 <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                         {/* Left Column: Huge Header */}
                         <div className="lg:w-1/3 shrink-0 flex flex-col justify-between">
                             <div>
                                 <h2
-                                    ref={institutionsHeaderRef}
-                                    className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-slate-900 tracking-tight mb-8"
-                                    style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
+                                    className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight mb-8"
+                                    style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                                 >
                                     Why <br />
                                     Institutions <br />
-                                    <span className="text-primary">Trust Altrion</span>
+                                    <span style={{ color: '#073121' }}>Trust Altrion</span>
                                 </h2>
-                                <p className="text-lg text-slate-600 leading-relaxed max-w-md mb-8">
+                                <p className="text-lg leading-relaxed max-w-md mb-8" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                                     It's more than a platform — it's a guardian of your financial future.
                                     A system built to empower users, banks, and institutions with the tools to thrive.
                                 </p>
@@ -298,19 +218,19 @@ export default function AltrionDifference() {
                         </div>
 
                         {/* Right Column: Grid of Items */}
-                        <div ref={institutionsGridRef} className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16">
+                        <div className="lg:w-2/3 grid md:grid-cols-2 gap-x-12 gap-y-16">
                             {institutionReasons.map((item, index) => (
                                 <div key={index} className="flex flex-col gap-4">
                                     <div className={cn("w-6 h-6 mb-2", item.iconClass)}>
                                         <item.icon className="w-full h-full stroke-[1.5]" />
                                     </div>
                                     <h3
-                                        className="text-xl md:text-2xl font-bold text-slate-900"
-                                        style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
+                                        className="text-2xl font-medium"
+                                        style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                                     >
                                         {item.title}
                                     </h3>
-                                    <p className="text-base text-slate-600 leading-relaxed max-w-sm">
+                                    <p className="text-base leading-relaxed max-w-sm" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
                                         {item.description}
                                     </p>
                                 </div>

@@ -44,10 +44,12 @@ export default function WhyUs() {
             {/* Section 1: Story & Tiles */}
             <WhyUsBackground className="py-24">
                 {/* Header */}
-                <div className="relative z-10 container mx-auto px-6 mb-24">
+                <div className="relative z-10 container mx-auto px-6 mb-24 pt-24">
                     <div className="text-center max-w-4xl mx-auto">
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 font-['LinecaGreek']">
-                            Move at the speed of <br /><span className="text-primary">Altrion</span>
+                        <h1
+                            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 font-['LinecaGreek'] text-foreground"
+                        >
+                            Move at the speed of <br /><span style={{ color: '#073121' }}>Altrion</span>
                         </h1>
                         <p className="text-xl text-muted-foreground">
                             Follow the journey that leads smarter investors to Altrion.
