@@ -146,49 +146,75 @@ export default function AltrionDifference() {
                         </p>
                     </div>
 
-                    {/* Column Headers */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 relative mb-4">
-                        {/* Vertical Divider Line - Thicker */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 hidden lg:block -translate-x-1/2" />
-
-                        {/* Column 1 Header: The Altrion Advantage */}
-                        <div className="flex flex-col items-center text-center gap-1">
-                            <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
-                                <Check className="w-4 h-4 text-blue-600" />
+                    {/* Mobile View - All Advantage cards, then all Cost cards */}
+                    <div className="lg:hidden space-y-6">
+                        {/* Advantage Section */}
+                        <div className="space-y-3">
+                            <div className="flex flex-col items-center text-center gap-1 mb-4">
+                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                                    <Check className="w-4 h-4 text-blue-600" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 font-['LinecaGreek']">The Altrion Advantage</h3>
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-900 font-['LinecaGreek']">The Altrion Advantage</h3>
+                            {ADVANTAGE_CARDS.map((card, index) => (
+                                <DifferenceTile key={index} {...card} variant="positive" />
+                            ))}
                         </div>
 
-                        {/* Column 2 Header: The Cost of Ignoring It */}
-                        <div className="flex flex-col items-center text-center gap-1">
-                            <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                                <X className="w-4 h-4 text-red-600" />
+                        {/* Cost Section */}
+                        <div className="space-y-3 mt-8">
+                            <div className="flex flex-col items-center text-center gap-1 mb-4">
+                                <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                                    <X className="w-4 h-4 text-red-600" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-red-600 font-['LinecaGreek']">The Cost of Ignoring It</h3>
                             </div>
-                            <h3 className="text-2xl font-bold text-red-600 font-['LinecaGreek']">The Cost of Ignoring It</h3>
+                            {COST_CARDS.map((card, index) => (
+                                <DifferenceTile key={index} {...card} variant="negative" />
+                            ))}
                         </div>
                     </div>
 
-                    {/* Tiles - Row by Row */}
-                    <div className="space-y-3 relative">
-                        {/* Vertical Divider Line */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 hidden lg:block -translate-x-1/2" />
+                    {/* Desktop View - Row by Row paired tiles */}
+                    <div className="hidden lg:block">
+                        {/* Column Headers */}
+                        <div className="grid grid-cols-2 gap-8 relative mb-4">
+                            {/* Vertical Divider Line */}
+                            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 -translate-x-1/2" />
 
-                        {ADVANTAGE_CARDS.map((advantageCard, index) => (
-                            <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-                                <div className="flex">
-                                    <DifferenceTile
-                                        {...advantageCard}
-                                        variant="positive"
-                                    />
+                            {/* Column 1 Header: The Altrion Advantage */}
+                            <div className="flex flex-col items-center text-center gap-1">
+                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                                    <Check className="w-4 h-4 text-blue-600" />
                                 </div>
-                                <div className="flex">
-                                    <DifferenceTile
-                                        {...COST_CARDS[index]}
-                                        variant="negative"
-                                    />
-                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 font-['LinecaGreek']">The Altrion Advantage</h3>
                             </div>
-                        ))}
+
+                            {/* Column 2 Header: The Cost of Ignoring It */}
+                            <div className="flex flex-col items-center text-center gap-1">
+                                <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                                    <X className="w-4 h-4 text-red-600" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-red-600 font-['LinecaGreek']">The Cost of Ignoring It</h3>
+                            </div>
+                        </div>
+
+                        {/* Tiles - Row by Row */}
+                        <div className="space-y-3 relative">
+                            {/* Vertical Divider Line */}
+                            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-slate-200 -translate-x-1/2" />
+
+                            {ADVANTAGE_CARDS.map((advantageCard, index) => (
+                                <div key={index} className="grid grid-cols-2 gap-8">
+                                    <div className="flex">
+                                        <DifferenceTile {...advantageCard} variant="positive" />
+                                    </div>
+                                    <div className="flex">
+                                        <DifferenceTile {...COST_CARDS[index]} variant="negative" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
