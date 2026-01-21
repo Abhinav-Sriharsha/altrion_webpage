@@ -42,12 +42,12 @@ export default function WhyUs() {
     return (
         <>
             {/* Section 1: Story & Tiles */}
-            <WhyUsBackground className="py-24">
+            <WhyUsBackground className="py-12">
                 {/* Header */}
-                <div className="relative z-10 container mx-auto px-6 mb-24 pt-24">
+                <div className="relative z-10 container mx-auto px-6 mb-12 pt-12 max-w-7xl">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1
-                            className="text-5xl md:text-7xl font-bold tracking-tight mb-8 font-['LinecaGreek'] text-foreground"
+                            className="text-4xl md:text-6xl font-bold tracking-tight mb-8 font-['LinecaGreek'] text-foreground"
                         >
                             Move at the speed of <br /><span style={{ color: '#073121' }}>Altrion</span>
                         </h1>

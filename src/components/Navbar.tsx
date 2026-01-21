@@ -29,7 +29,7 @@ export default function Navbar() {
                 borderBottom: '1px solid rgba(255, 255, 255, 0.4)'
             }}
         >
-            <div className="container mx-auto px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6 max-w-7xl">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <Link to="/" className="flex-shrink-0 flex items-center gap-3">

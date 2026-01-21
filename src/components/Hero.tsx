@@ -46,12 +46,12 @@ export default function Hero() {
         <section id="mission" ref={containerRef} className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-transparent pt-20">
             <HeroBackground />
 
-            <div className="container relative z-10 px-4 md:px-6 mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24">
+            <div className="container relative z-10 px-4 md:px-6 mx-auto w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-24 max-w-7xl">
                 {/* Text Block - Left Side */}
                 <div className="flex-1 text-center lg:text-left max-w-2xl">
                     <h1
                         ref={titleRef}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-foreground"
+                        className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground"
                         style={{
                             fontFamily: "'LinecaGreek', 'Outfit', sans-serif",
                             fontVariationSettings: "'wght' 463, 'slnt' -51",

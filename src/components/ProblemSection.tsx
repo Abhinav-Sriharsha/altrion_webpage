@@ -30,7 +30,7 @@ export default function ProblemSection() {
                     {/* Left Column: Huge Header */}
                     <div className="lg:w-1/3 shrink-0">
                         <h2
-                            className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight"
+                            className="text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] tracking-tight"
                             style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                         >
                             Fragmented <br />
@@ -49,7 +49,7 @@ export default function ProblemSection() {
                                     <item.icon className="w-full h-full stroke-[1.5]" />
                                 </div>
                                 <h3
-                                    className="text-xl md:text-2xl font-medium"
+                                    className="text-lg md:text-xl font-medium"
                                     style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif", color: '#f6f3ee' }}
                                 >
                                     {item.title}

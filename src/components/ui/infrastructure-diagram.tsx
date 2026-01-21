@@ -40,7 +40,7 @@ export const InfrastructureDiagram = () => {
             </div>
 
             {/* Desktop View (Diagram) - 3 tiles at 10, 2, and 6 o'clock */}
-            <div className="hidden md:flex relative w-full aspect-[16/12] md:aspect-[16/9] lg:aspect-[16/8] items-center justify-center">
+            <div className="hidden md:flex relative w-full aspect-[16/10] md:aspect-[16/7] lg:aspect-[16/5] items-center justify-center">
 
                 {/* Grid Background with Fade Effect */}
                 <div
@@ -83,9 +83,9 @@ export const InfrastructureDiagram = () => {
                 </svg>
 
                 {/* Central Hub */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                    <div className="w-32 h-32 md:w-30 md:h-30 rounded-3xl bg-white shadow-xl border border-teal-100 flex items-center justify-center p-1 relative">
-                        <div className="absolute inset-0 bg-teal-500/5 rounded-3xl animate-pulse" />
+                <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                    <div className="w-24 h-24 md:w-20 md:h-20 rounded-2xl bg-white shadow-xl border border-teal-100 flex items-center justify-center p-1 relative">
+                        <div className="absolute inset-0 bg-teal-500/5 rounded-2xl animate-pulse" />
                         <img src={coreImage} alt="Altrion" className="w-full h-auto object-contain" />
                     </div>
                 </div>
@@ -93,17 +93,17 @@ export const InfrastructureDiagram = () => {
                 {/* Nodes - positioned at 10, 2, and 6 o'clock */}
                 <div className="absolute inset-0 w-full h-full">
                     {/* 10 o'clock - Top Left, angled toward center */}
-                    <div className="absolute top-[15%] left-[15%] w-[28%] max-w-[280px]">
+                    <div className="absolute top-[15%] left-[15%] w-[24%] max-w-[220px]">
                         <NodeCard node={nodes[0]} align="right" />
                     </div>
 
                     {/* 2 o'clock - Top Right, angled toward center */}
-                    <div className="absolute top-[15%] right-[15%] w-[28%] max-w-[280px]">
+                    <div className="absolute top-[15%] right-[15%] w-[24%] max-w-[220px]">
                         <NodeCard node={nodes[1]} align="left" />
                     </div>
 
                     {/* 6 o'clock - Bottom Center */}
-                    <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[28%] max-w-[280px]">
+                    <div className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[24%] max-w-[220px]">
                         <NodeCard node={nodes[2]} align="center" />
                     </div>
                 </div>
@@ -115,11 +115,11 @@ export const InfrastructureDiagram = () => {
 function NodeCard({ node, align }: { node: typeof nodes[0], align: "left" | "right" | "center" }) {
     return (
         <div className={cn(
-            "bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow cursor-default",
+            "bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow cursor-default",
             align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
         )}>
             <h3
-                className="text-lg font-semibold text-foreground mb-2"
+                className="text-base font-semibold text-foreground mb-1"
                 style={{ fontFamily: "'LinecaGreek', 'Outfit', sans-serif" }}
             >
                 {node.title}

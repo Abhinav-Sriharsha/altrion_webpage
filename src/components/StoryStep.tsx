@@ -37,7 +37,7 @@ export default function StoryStep({ step }: StoryStepProps) {
         >
             {/* Text Section */}
             <div className="p-8 flex flex-col justify-center items-center text-center flex-1">
-                <h3 className="text-2xl font-bold font-['LinecaGreek'] leading-tight text-foreground mb-4">
+                <h3 className="text-xl font-bold font-['LinecaGreek'] leading-tight text-foreground mb-4">
                     {step.title}
                 </h3>
                 <p className="text-base leading-relaxed text-muted-foreground font-medium">

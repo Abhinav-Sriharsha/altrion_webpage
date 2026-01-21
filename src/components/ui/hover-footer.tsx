@@ -100,7 +100,7 @@ export const TextHoverEffect = ({
                 textAnchor="middle"
                 dominantBaseline="middle"
                 strokeWidth={strokeWidth}
-                className="stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
+                className="stroke-neutral-200 font-['LinecaGreek'] text-7xl font-bold dark:stroke-neutral-800"
                 style={{ opacity: hovered ? 0.7 : 0, stroke: mainStrokeColor, fill: "url(#fillGradient)" }}
             >
                 {text}
@@ -111,7 +111,7 @@ export const TextHoverEffect = ({
                 textAnchor="middle"
                 dominantBaseline="middle"
                 strokeWidth={strokeWidth}
-                className="font-[helvetica] text-7xl font-bold dark:stroke-[#3ca2fa99]"
+                className="font-['LinecaGreek'] text-7xl font-bold dark:stroke-[#3ca2fa99]"
                 style={{ stroke: hoverStrokeColor, fill: "url(#fillGradient)" }}
                 initial={{ strokeDashoffset: 1000, strokeDasharray: 1000, fillOpacity: 0 }}
                 whileInView={{
@@ -137,7 +137,7 @@ export const TextHoverEffect = ({
                 stroke="url(#textGradient)"
                 strokeWidth={strokeWidth}
                 mask="url(#textMask)"
-                className="fill-transparent font-[helvetica] text-7xl font-bold"
+                className="fill-transparent font-['LinecaGreek'] text-7xl font-bold"
             >
                 {text}
             </text>
